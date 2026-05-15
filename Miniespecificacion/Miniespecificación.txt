@@ -1,0 +1,103 @@
+1. Inicio
+2. //Declaración de los arreglos unidimensionales paralelos
+3. lista_nombres[100], indice [0-99]
+4. lista_apellidos[100], indice [0-99]
+5. lista_cantidades[100], indice [0-99]
+6. lista_precios[100], indice [0-99]
+7. lista_totales[100], indice [0-99]
+8.
+9. //Definición de las variables
+10. cantidad_ventas, cantidad_ventas, contador, i
+11. precio, subtotal, descuento, total
+12. promedio, mayor, menor
+13.
+14. //Solicitar la cantidad de ventas que se van a registrar
+15. Escribir "Ingrese la cantidad de ventas que desea ingresar: "
+16. Leer cantidad_ventas
+17.
+18. //Se inicializa el contador
+19. contador <-- 0
+20.
+21. //Se hace el registro de ventas
+22. Mientras contador < cantidad_ventas Hacer
+23.
+24. //Se solicitan los datos a ingresar por el usuario
+25. 	Escribir "Ingrese nombre: "
+26. 	Leer nombre
+27. 	Escribir "Ingrese apellido: "
+28. 	Leer apellido
+29. 	Escribir "Ingrese cantidad de entradas: "
+30. 	Leer cantidad_entradas
+31. 	Escribir "Ingrese precio unitario: "
+32. 	Leer precio
+33.
+34. //Una vez ingresados los datos se proceden a hacer los calculos
+35.
+36. //Calcular subtotal
+37.	 subtotal <-- cantidad_entradas * precio
+38.
+39. //Calcular el monto del descuento aplicado
+40.	 Si cantidad_entradas = 1 Entonces
+41. 	     descuento <-- subtotal * 0.10
+42.	 Sino
+43. 	     Si cantidad_entradas >= 2 Y cantidad_entradas <= 3 Entonces
+44.		 descuento <-- descuento * 0.20
+45.	     Sino
+46. 		 Si cantidad_entradas >= 4 Y cantidad_entradas <= 5 Entonces
+47.		     descuento <-- descuento * 0.30
+48.		 Sino
+49.		     descuento <-- descuento * 0.40  
+50.		 FinSi
+51.	     FinSi
+52. 	 FinSi  
+53. 
+54. //Calcular el total después de aplicar el descuento
+55. 	 total <-- subtotal - descuento
+56. 
+57. //Se guardan los datos ingresados en los arreglos del inicio
+58.	 lista_nombres[contador] <-- nombre
+59.	 lista_apellidos[contador] <-- apellido
+60.	 lista_cantidades[contador] <-- cantidad_entradas
+61.	 lista_precios[contador] <-- precio
+62.	 lista_totales[contador] <-- total
+63.
+64. //Se incrementa el contador
+65.	 contador <-- contador + 1
+66.
+67. FinMientras
+68. 
+69. //Reporte final
+70. Para i <-- 0 Hasta cantidad_ventas - 1 Hacer
+71. 	Escribir  lista_nombres[i] 
+72. 	Escribir  lista_apellidos[i]
+73. 	Escribir  lista_cantidades[i]
+74. 	Escribir  lista_precios[i]
+75. 	Escribir  listatotales[i]
+76. FinPara
+77.
+78. //Calcular el promedio de ventas realizadas (promedio de los totales)
+79. promedio <-- 0
+80. 
+81. Para i <-- 0 Hasta cantidad_ventas - 1 Hacer
+82. 	promedio <-- promedio + lista_totales[i]
+83. FinPara
+84. promedio <-- promedio / cantidad_ventas
+85. 
+86. //Determinar y mostrar la venta de mayor monto
+87. //Determinar y mostrar la venta de menor monto
+88. mayor <-- lista_totales[0]
+89. menor <-- lista_totales[0]
+90.
+91. Para i <-- 0 Hasta cantidad_ventas - 1 Hacer
+92. 	Si lista_totales[i] > mayor Entonces
+93.          mayor <-- lista_totales[i]
+94.	FinSi
+95.     Si lista_totales[i] < menor Entonce
+96.          menor <-- lista_totales[i]
+97.	FinSi
+98. FinPara
+99. //Resultados finales
+100. Escribir promedio
+101. Escribir mayor
+102. Escribir menor
+103. Fin
